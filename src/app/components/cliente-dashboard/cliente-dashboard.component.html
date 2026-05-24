@@ -1,0 +1,70 @@
+<div class="cliente-dashboard">
+  <header class="header">
+    <div class="header-content">
+      <h1>Bienvenido, {{ userName }}</h1>
+      <p>Panel de Cliente</p>
+    </div>
+    <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+  </header>
+
+  <div class="tabs">
+    <button
+      [class.active]="activeTab === 'opciones'"
+      (click)="activeTab = 'opciones'"
+      class="tab-btn"
+    >
+      📅 Opciones
+    </button>
+    <button
+      [class.active]="activeTab === 'mis-turnos'"
+      (click)="activeTab = 'mis-turnos'"
+      class="tab-btn"
+    >
+      📋 Mis Turnos
+    </button>
+  </div>
+
+  <div class="content">
+    <!-- Opciones Tab -->
+    <div *ngIf="activeTab === 'opciones'" class="tab-content">
+      <div class="opciones-grid">
+        <div class="opcion-card" (click)="navigateToReserva()">
+          <div class="opcion-icon">📅</div>
+          <h3>Reservar Turno</h3>
+          <p>Agenda tu próxima visita</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mis Turnos Tab -->
+    <div *ngIf="activeTab === 'mis-turnos'" class="tab-content">
+      <div *ngIf="turnos.length === 0" class="empty-state">
+        <p>No tienes turnos reservados</p>
+      </div>
+
+      <div *ngIf="turnos.length > 0" class="turnos-list">
+        <div *ngFor="let turno of turnos" class="turno-card">
+          <div class="turno-header">
+            <span class="turno-fecha">{{ turno.fecha | date:'dd/MM/yyyy' }}</span>
+            <span [class]="'badge ' + getEstadoClass(turno.estado)">
+              {{ turno.estado }}
+            </span>
+          </div>
+          <div class="turno-details">
+            <p><strong>Hora:</strong> {{ turno.hora_inicio }}</p>
+            <p><strong>Estado:</strong> {{ turno.estado }}</p>
+          </div>
+          <div class="turno-actions">
+            <button
+              *ngIf="turno.estado !== 'completado' && turno.estado !== 'cancelado'"
+              (click)="cancelarTurno(turno.id)"
+              class="btn-cancel"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

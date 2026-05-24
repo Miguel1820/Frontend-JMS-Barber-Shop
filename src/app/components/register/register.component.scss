@@ -1,0 +1,138 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 20px;
+}
+
+.register-card {
+  background: #1f1f1f;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+  .logo {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    color: #d4a574;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    color: #999;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    color: #d4a574;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #2a2a2a;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  transition: border-color 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: #d4a574;
+  }
+
+  &::placeholder {
+    color: #666;
+  }
+}
+
+select.form-input {
+  cursor: pointer;
+
+  option {
+    background: #2a2a2a;
+    color: #fff;
+  }
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: #d4a574;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+
+  &:hover:not(:disabled) {
+    background: #e8b887;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+}
+
+.success-message {
+  color: #51cf66;
+  font-size: 14px;
+  padding: 15px;
+  background: rgba(81, 207, 102, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-link {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  margin-top: 20px;
+
+  .link {
+    color: #d4a574;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

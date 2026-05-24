@@ -1,0 +1,101 @@
+<div class="barbero-dashboard">
+  <header class="header">
+    <div class="header-content">
+      <h1>Bienvenido, {{ userName }}</h1>
+      <p>Panel de Barbero</p>
+    </div>
+    <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+  </header>
+
+  <div class="stats">
+    <div class="stat-card">
+      <span class="stat-number">{{ turnosHoy.length }}</span>
+      <span class="stat-label">Turnos Hoy</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">{{ turnos.length }}</span>
+      <span class="stat-label">Turnos Total</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button
+      [class.active]="activeTab === 'hoy'"
+      (click)="activeTab = 'hoy'"
+      class="tab-btn"
+    >
+      📅 Turnos Hoy
+    </button>
+    <button
+      [class.active]="activeTab === 'todos'"
+      (click)="activeTab = 'todos'"
+      class="tab-btn"
+    >
+      📋 Todos los Turnos
+    </button>
+  </div>
+
+  <div class="content">
+    <!-- Turnos Hoy -->
+    <div *ngIf="activeTab === 'hoy'" class="tab-content">
+      <div *ngIf="turnosHoy.length === 0" class="empty-state">
+        <p>No tienes turnos programados para hoy</p>
+      </div>
+
+      <div *ngIf="turnosHoy.length > 0" class="turnos-list">
+        <div *ngFor="let turno of turnosHoy" class="turno-card">
+          <div class="turno-header">
+            <span class="turno-hora">{{ turno.hora_inicio }}</span>
+            <span [class]="'badge ' + getEstadoClass(turno.estado)">
+              {{ turno.estado }}
+            </span>
+          </div>
+          <div class="turno-details">
+            <p><strong>Servicio:</strong> Corte</p>
+            <p><strong>Duración:</strong> 30 min</p>
+            <p><strong>Estado:</strong> {{ turno.estado }}</p>
+          </div>
+          <div class="turno-actions">
+            <button
+              *ngIf="turno.estado === 'pendiente'"
+              (click)="actualizarEstadoTurno(turno.id, 'confirmado')"
+              class="btn-confirm"
+            >
+              Confirmar
+            </button>
+            <button
+              *ngIf="turno.estado === 'confirmado'"
+              (click)="actualizarEstadoTurno(turno.id, 'completado')"
+              class="btn-complete"
+            >
+              Completar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Todos los Turnos -->
+    <div *ngIf="activeTab === 'todos'" class="tab-content">
+      <div *ngIf="turnos.length === 0" class="empty-state">
+        <p>No tienes turnos</p>
+      </div>
+
+      <div *ngIf="turnos.length > 0" class="turnos-list">
+        <div *ngFor="let turno of turnos" class="turno-card">
+          <div class="turno-header">
+            <span class="turno-fecha">{{ turno.fecha | date:'dd/MM/yyyy' }}</span>
+            <span class="turno-hora">{{ turno.hora_inicio }}</span>
+            <span [class]="'badge ' + getEstadoClass(turno.estado)">
+              {{ turno.estado }}
+            </span>
+          </div>
+          <div class="turno-details">
+            <p><strong>Servicio:</strong> Corte</p>
+            <p><strong>Estado:</strong> {{ turno.estado }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
