@@ -35,14 +35,19 @@ export class LoginComponent {
 
     this.authService.login(this.loginForm.value).subscribe({
       next: (response) => {
-        const role = this.authService.getRole();
-        if (role === 'cliente') {
-          this.router.navigate(['/cliente/dashboard']);
-        } else if (role === 'barbero') {
-          this.router.navigate(['/barbero/dashboard']);
-        } else if (role === 'administrador') {
-          this.router.navigate(['/admin/dashboard']);
-        }
+        this.loading = false;
+        setTimeout(() => {
+          const role = this.authService.getRole();
+          if (role === 'cliente') {
+            this.router.navigate(['/cliente/dashboard']);
+          } else if (role === 'barbero') {
+            this.router.navigate(['/barbero/dashboard']);
+          } else if (role === 'administrador') {
+            this.router.navigate(['/admin/dashboard']);
+          } else {
+            this.router.navigate(['/login']);
+          }
+        }, 100);
       },
       error: (err) => {
         this.loading = false;

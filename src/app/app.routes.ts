@@ -4,6 +4,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { ClienteDashboardComponent } from './components/cliente-dashboard/cliente-dashboard.component';
 import { ReservarTurnoComponent } from './components/reservar-turno/reservar-turno.component';
 import { BarberoDashboardComponent } from './components/barbero-dashboard/barbero-dashboard.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminBarberosComponent } from './components/admin-barberos/admin-barberos.component';
+import { AdminServiciosComponent } from './components/admin-servicios/admin-servicios.component';
+import { AdminCalendarioComponent } from './components/admin-calendario/admin-calendario.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 
@@ -44,6 +48,29 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: BarberoDashboardComponent
+      }
+    ]
+  },
+  {
+    path: 'admin',
+    canActivate: [AuthGuard, RoleGuard],
+    data: { role: 'administrador' },
+    children: [
+      {
+        path: 'dashboard',
+        component: AdminDashboardComponent
+      },
+      {
+        path: 'barberos',
+        component: AdminBarberosComponent
+      },
+      {
+        path: 'servicios',
+        component: AdminServiciosComponent
+      },
+      {
+        path: 'calendario',
+        component: AdminCalendarioComponent
       }
     ]
   },

@@ -22,6 +22,7 @@ export class AuthService {
         localStorage.setItem('token', response.access_token);
         localStorage.setItem('user_id', response.user_id.toString());
         localStorage.setItem('role', response.role);
+        localStorage.setItem('email', credentials.email);
       })
     );
   }
@@ -34,6 +35,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('user_id');
     localStorage.removeItem('role');
+    localStorage.removeItem('email');
     this.currentUserSubject.next(null);
   }
 
@@ -43,6 +45,10 @@ export class AuthService {
 
   getRole(): string | null {
     return localStorage.getItem('role');
+  }
+
+  getEmail(): string | null {
+    return localStorage.getItem('email');
   }
 
   getUserId(): number | null {

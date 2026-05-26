@@ -30,7 +30,8 @@ export class ClienteDashboardComponent implements OnInit {
   }
 
   loadUserData(): void {
-    this.userName = localStorage.getItem('user_email') || 'Cliente';
+    const email = this.authService.getEmail();
+    this.userName = email ? email.split('@')[0] : 'Cliente';
   }
 
   loadTurnos(): void {

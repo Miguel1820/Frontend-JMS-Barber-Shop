@@ -31,7 +31,8 @@ export class BarberoDashboardComponent implements OnInit {
   }
 
   loadUserData(): void {
-    this.userName = localStorage.getItem('user_email') || 'Barbero';
+    const email = this.authService.getEmail();
+    this.userName = email ? email.split('@')[0] : 'Barbero';
   }
 
   loadTurnos(): void {

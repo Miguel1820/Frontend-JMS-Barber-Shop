@@ -1,0 +1,50 @@
+<div class="admin-dashboard">
+  <header class="header">
+    <div class="header-content">
+      <h1>Bienvenido, {{ userName }}</h1>
+      <p>Panel Administrativo</p>
+    </div>
+    <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+  </header>
+
+  <div class="admin-content">
+    <div class="stats">
+      <div class="stat-card">
+        <span class="stat-number">12</span>
+        <span class="stat-label">Turnos Hoy</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Barberos Activos</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">8</span>
+        <span class="stat-label">Servicios</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">47</span>
+        <span class="stat-label">Clientes Este Mes</span>
+      </div>
+    </div>
+
+    <div class="admin-grid">
+      <div class="admin-card" (click)="navigateToGestionar('barberos')">
+        <div class="card-icon">👤</div>
+        <h3>Gestionar Barberos</h3>
+        <p>Registrar, editar y eliminar barberos</p>
+      </div>
+
+      <div class="admin-card" (click)="navigateToGestionar('servicios')">
+        <div class="card-icon">✂️</div>
+        <h3>Gestionar Servicios</h3>
+        <p>Administrar catálogo de servicios</p>
+      </div>
+
+      <div class="admin-card" (click)="navigateToGestionar('calendario')">
+        <div class="card-icon">📅</div>
+        <h3>Ver Calendario</h3>
+        <p>Vista mensual de todos los turnos</p>
+      </div>
+    </div>
+  </div>
+</div>
