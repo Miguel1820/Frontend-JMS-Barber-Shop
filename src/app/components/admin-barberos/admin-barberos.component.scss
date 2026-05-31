@@ -1,0 +1,145 @@
+:host {
+  display: block;
+  background: #0f0f0f;
+  min-height: 100vh;
+}
+
+.admin-page {
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: #fff;
+}
+ 
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-bottom: 2px solid #d4a574;
+ 
+  h1 {
+    color: #d4a574;
+    font-size: 28px;
+    margin: 0 0 5px 0;
+  }
+ 
+  p {
+    color: #999;
+    margin: 0;
+    font-size: 14px;
+  }
+}
+ 
+.btn-volver {
+  background: transparent;
+  border: 2px solid #d4a574;
+  color: #d4a574;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+ 
+  &:hover {
+    background: #d4a574;
+    color: #0f0f0f;
+  }
+}
+ 
+.admin-content {
+  padding: 30px 40px;
+}
+ 
+.stat-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px 40px;
+  margin-bottom: 30px;
+ 
+  .stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #d4a574;
+  }
+ 
+  .stat-label {
+    color: #999;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+}
+ 
+.data-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  border: 1px solid #333;
+  padding: 30px;
+ 
+  &:hover {
+    border-color: #d4a574;
+  }
+}
+ 
+.card-title {
+  color: #d4a574;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+}
+ 
+.table-container {
+  overflow-x: auto;
+}
+ 
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+ 
+  th {
+    background: #2a2a2a;
+    color: #d4a574;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+ 
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #2a2a2a;
+    color: #ddd;
+    font-size: 14px;
+  }
+ 
+  tr:hover td {
+    background: #222;
+  }
+}
+ 
+.badge-activo {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+ 
+.badge-inactivo {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+ 
+.no-data {
+  text-align: center;
+  color: #666;
+  padding: 40px;
+}

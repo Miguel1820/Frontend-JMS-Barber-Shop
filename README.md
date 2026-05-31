@@ -1,59 +1,156 @@
-# TempAngular
+# 💈 JMS Barber Shop - Sistema de Gestión de Turnos (Frontend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
+> **Versión**: 1.0.0  
+> **Última actualización**: 2026-05-31  
 
-## Development server
+![Estado del proyecto](https://img.shields.io/badge/Estado-Final-brightgreen?logo=git)
 
-To start a local development server, run:
+---
 
+## 📖 Descripción General
+Frontend del sistema de gestión de turnos para barbería **"JMS Barber Shop"**. Interfaz de usuario desarrollada en **Angular 17** con diseño moderno y responsive, permitiendo a los clientes reservar turnos, a los barberos gestionar su agenda y a los administradores controlar todo el sistema.
+
+---
+
+## 👥 Integrantes
+- **Miguel Ángel Cortázar Montoya**
+- **Juan David Ojeda Díaz**
+- **Juan Sebastián Padierna Manco**
+
+---
+
+## ⚙️ Tecnologías Utilizadas
+- **Angular 17** - Framework de frontend
+- **TypeScript** - Lenguaje de programación
+- **SCSS** - Preprocesador de estilos
+- **Angular Router** - Navegación y rutas protegidas
+- **Angular Guards** - Protección de rutas por rol
+- **JWT Token** - Autenticación y manejo de sesiones
+- **CSS Grid/Flexbox** - Diseño responsive
+
+---
+
+## 🚀 Funcionalidades Implementadas
+- 🔐 **Autenticación completa**: Login, logout y manejo de tokens JWT  
+- 👤 **Dashboard por roles**: Cliente, Barbero y Administrador  
+- 📅 **Reserva de turnos**: Selección de servicio, barbero y horario  
+- 👨‍💼 **Gestión de barberos**: CRUD completo con validaciones  
+- 💈 **Gestión de servicios**: Crear, editar y eliminar servicios  
+- 📊 **Visualización de calendario**: Agenda de turnos por día  
+- 🛡️ **Rutas protegidas**: Guardias de autenticación y autorización  
+- 📱 **Diseño responsive**: Adaptable a móviles y escritorio  
+
+---
+
+## 📦 Requisitos de Instalación
+1. **Node.js 18+**  
+2. **npm** (instalado con Node.js)  
+3. **Angular CLI** (opcional, se instala localmente)  
+
+### Instalación
 ```bash
+# Clonar repositorio
+git clone https://github.com/tu-usuario/JMS-Barber-Shop.git
+
+# Navegar al frontend
+cd Frontend-JMS-Barber-Shop
+
+# Instalar dependencias
+npm install
+
+# Instalar Angular CLI globalmente (si no está instalado)
+npm install -g @angular/cli
+```
+
+---
+
+## ▶️ Pasos para Ejecutar el Proyecto
+```bash
+# Iniciar servidor de desarrollo
 ng serve
+
+# O usando npm
+npm start
+
+# Una vez compilado, navegar a:
+http://localhost:4200
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Credenciales de prueba
+```
+Admin:
+  Email: admin@jms.com
+  Contraseña: admin123
 
-## Code scaffolding
+Cliente:
+  Email: cliente@jms.com
+  Contraseña: cliente123
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+Barbero:
+  Email: barbero@jms.com
+  Contraseña: barbero123
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## 🌐 Enlace al Despliegue
+- **Frontend desplegado**: *[Se conectará mediante despliegue en servidor asignado]*  
+  (Actualmente en configuración local)
+
+---
+
+## 📸 Capturas del MVP
+# Dashboard del Cliente
+![alt text](image.png)
+*Panel de cliente con lista de turnos*
+
+# Dashboard del Administrador
+![alt text](image-1.png)
+*Panel de administrador con gestión de barberos y servicios*
+
+---
+
+## 📁 Estructura del Proyecto
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── login/
+│   │   ├── register/
+│   │   ├── cliente-dashboard/
+│   │   ├── barbero-dashboard/
+│   │   ├── admin-dashboard/
+│   │   ├── admin-barberos/
+│   │   ├── admin-servicios/
+│   │   └── admin-calendario/
+│   ├── services/
+│   │   ├── auth.service.ts
+│   │   ├── barbero.service.ts
+│   │   ├── servicio.service.ts
+│   │   └── turno.service.ts
+│   ├── guards/
+│   │   ├── auth.guard.ts
+│   │   └── role.guard.ts
+│   ├── interceptors/
+│   ├── models/
+│   └── app.routes.ts
 ```
 
-## Building
+---
 
-To build the project run:
+## 📜 Licencia
+Esta aplicación está bajo licencia ITM. Puedes usarla, modificarla y distribuirla de acuerdo a los términos de la licencia.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🙏 Agradecimientos
+- A **Angular** por el framework de código abierto.  
+- A **TypeScript** por su tipado estático.  
+- A la comunidad de **Angular** por sus recursos y ejemplos.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+*¡Gracias por usar y contribuir al proyecto!*
+ATT: Proyecto JMS Barber Shop
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Versión**: 1.0.0

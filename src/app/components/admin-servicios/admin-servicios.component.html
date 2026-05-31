@@ -1,0 +1,50 @@
+<div class="admin-page">
+  <header class="admin-header">
+    <div class="header-content">
+      <h1>Gestionar Servicios</h1>
+      <p>Panel de administración de servicios</p>
+    </div>
+    <button (click)="volver()" class="btn-volver">← Volver</button>
+  </header>
+ 
+  <div class="admin-content">
+    <div class="stat-card">
+      <span class="stat-number">{{ servicios.length }}</span>
+      <span class="stat-label">Servicios Registrados</span>
+    </div>
+ 
+    <div class="data-card">
+      <h3 class="card-title">Lista de Servicios</h3>
+      <div class="table-container">
+        <table class="admin-table" *ngIf="servicios.length > 0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Duración</th>
+              <th>Activo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of servicios">
+              <td>{{ s.id }}</td>
+              <td>{{ s.nombre }}</td>
+              <td>{{ s.descripcion }}</td>
+              <td class="precio">${{ s.precio | number }}</td>
+              <td>{{ s.duracion_minutos }} min</td>
+              <td>
+                <span [class]="s.activo ? 'badge-activo' : 'badge-inactivo'">
+                  {{ s.activo ? 'Sí' : 'No' }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="no-data" *ngIf="servicios.length === 0">No hay servicios registrados.</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 

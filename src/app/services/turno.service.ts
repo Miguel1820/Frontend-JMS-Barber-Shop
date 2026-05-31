@@ -8,6 +8,8 @@ import { Turno } from '../models/index';
 })
 export class TurnoService {
   private apiUrl = 'http://localhost:8000/api/turnos';
+  // New method to obtener todos los turnos (uso admin)
+
 
   constructor(private http: HttpClient) {}
 

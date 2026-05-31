@@ -1,0 +1,47 @@
+<div class="admin-page">
+  <header class="admin-header">
+    <div class="header-content">
+      <h1>Gestionar Barberos</h1>
+      <p>Panel de administración de barberos</p>
+    </div>
+    <button (click)="volver()" class="btn-volver">← Volver</button>
+  </header>
+ 
+  <div class="admin-content">
+    <div class="stat-card">
+      <span class="stat-number">{{ barberos.length }}</span>
+      <span class="stat-label">Barberos Registrados</span>
+    </div>
+ 
+    <div class="data-card">
+      <h3 class="card-title">Lista de Barberos</h3>
+      <div class="table-container">
+        <table class="admin-table" *ngIf="barberos.length > 0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Horario Inicio</th>
+              <th>Horario Fin</th>
+              <th>Activo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let b of barberos">
+              <td>{{ b.id }}</td>
+              <td>{{ b.user_id }}</td>
+              <td>{{ b.horario_inicio }}</td>
+              <td>{{ b.horario_fin }}</td>
+              <td>
+                <span [class]="b.activo ? 'badge-activo' : 'badge-inactivo'">
+                  {{ b.activo ? 'Sí' : 'No' }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="no-data" *ngIf="barberos.length === 0">No hay barberos registrados.</p>
+      </div>
+    </div>
+  </div>
+</div>
